@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title', 'Welcome') | Mini Restaurant ERP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: white;
+        }
+        .auth-card { border: none; border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,.2); }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-8 col-md-6 col-lg-4">
+            <div class="text-center  mb-4" style="color:black">
+                <i class="bi bi-egg-fried" style="font-size:2.5rem;"></i>
+                <h4 class="mt-2">Restaurant ERP</h4>
+            </div>
+            <div class="card auth-card p-4">
+                @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+                @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul class="mb-0">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @yield('content')
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
