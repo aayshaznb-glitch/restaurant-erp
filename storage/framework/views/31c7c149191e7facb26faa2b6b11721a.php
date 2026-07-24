@@ -29,7 +29,7 @@
         <div class="card stat-card h-100">
             <div class="ratio ratio-4x3 bg-light d-flex align-items-center justify-content-center">
                 <?php if($item->image): ?>
-                    <img src="<?php echo e(asset('storage/'.$item->image)); ?>" class="w-100 h-100" style="object-fit:cover;">
+                    <img src="<?php echo e(asset('uploads/'.$item->image)); ?>" class="w-100 h-100" style="object-fit:cover;">
                 <?php else: ?>
                     <i class="bi bi-egg-fried fs-1 text-secondary"></i>
                 <?php endif; ?>

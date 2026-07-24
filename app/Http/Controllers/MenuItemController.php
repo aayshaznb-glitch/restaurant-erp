@@ -44,8 +44,15 @@ class MenuItemController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('menu-items', 'public');
-        }
+
+    $image = $request->file('image');
+
+    $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+    $image->move(public_path('uploads/menu-items'), $imageName);
+
+    $validated['image'] = 'menu-items/' . $imageName;
+}
 
         MenuItem::create($validated);
 
@@ -70,8 +77,15 @@ class MenuItemController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $validated['image'] = $request->file('image')->store('menu-items', 'public');
-        }
+
+    $image = $request->file('image');
+
+    $imageName = time() . '.' . $image->getClientOriginalExtension();
+
+    $image->move(public_path('uploads/menu-items'), $imageName);
+
+    $validated['image'] = 'menu-items/' . $imageName;
+}
 
         $menuItem->update($validated);
 

@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
     {
         // Demo users - one per role
         $roles = [
-            ['name' => 'Admin User', 'email' => 'admin@restaurant.test', 'role' => 'admin'],
-            ['name' => 'Manager User', 'email' => 'manager@restaurant.test', 'role' => 'manager'],
-            ['name' => 'Waiter User', 'email' => 'waiter@restaurant.test', 'role' => 'waiter'],
-            ['name' => 'Kitchen User', 'email' => 'kitchen@restaurant.test', 'role' => 'kitchen'],
-            ['name' => 'Cashier User', 'email' => 'cashier@restaurant.test', 'role' => 'cashier'],
+            ['name' => 'Admin User', 'email' => 'admin@restaurant.test', 'role' => 'admin', 'password' => Hash::make('admin@1234')],
+            ['name' => 'Manager User', 'email' => 'manager@restaurant.test', 'role' => 'manager', 'password' => Hash::make('manager@1234')],
+            ['name' => 'Waiter User', 'email' => 'waiter@restaurant.test', 'role' => 'waiter', 'password' => Hash::make('waiter@1234')],
+            ['name' => 'Kitchen User', 'email' => 'kitchen@restaurant.test', 'role' => 'kitchen', 'password' => Hash::make('kitchen@1234')],
+            ['name' => 'Cashier User', 'email' => 'cashier@restaurant.test', 'role' => 'cashier', 'password' => Hash::make('cashier@1234')],
         ];
 
         foreach ($roles as $data) {
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
                 ['email' => $data['email']],
                 [
                     'name' => $data['name'],
-                    'password' => Hash::make('password'),
+                    'password' => $data['password'],
                     'role' => $data['role'],
                     'status' => 'active',
                 ]
